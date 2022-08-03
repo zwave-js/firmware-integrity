@@ -82,8 +82,9 @@ Usage:
     const hasher = crypto_1.default.createHash("sha256");
     hasher.update(firmware.data);
     const hash = hasher.digest("hex");
-    console.log("Integrity: ");
+    console.log();
     console.log(`sha256:${hash}`);
+    console.log();
 }
 void main();
 //# sourceMappingURL=index.js.map
