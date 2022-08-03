@@ -1,0 +1,22 @@
+{
+	"extends": "@tsconfig/node16/tsconfig.json",
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "build",
+		"declaration": true,
+		"declarationMap": true,
+		"noEmitOnError": true,
+		"removeComments": false,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": false,
+		"importsNotUsedAsValues": "error",
+		"sourceMap": true,
+		"inlineSourceMap": false,
+		"stripInternal": true,
+		"pretty": true,
+		"noErrorTruncation": true
+	},
+	"include": [
+		"src/**/*.ts"
+	]
+}

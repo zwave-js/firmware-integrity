@@ -1,0 +1,36 @@
+{
+  "name": "@zwave-js/firmware-integrity",
+  "version": "1.0.0",
+  "description": "Z-Wave JS Firmware integrity hash creation tool",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "build/index.js",
+  "files": [
+    "bin/",
+    "build/**/*.{js,d.ts,map}"
+  ],
+  "bin": "bin/firmware-integrity.js",
+  "repository": "https://github.com/zwave-js/firmware-integrity",
+  "author": "Dominic Griesel <dominic.griesel@nabucasa.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">16.9.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "yarn run build --watch --pretty"
+  },
+  "packageManager": "yarn@3.2.2",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "16",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@zwave-js/core": "^9.6.0",
+    "axios": "^0.27.2",
+    "fs-extra": "^10.1.0"
+  }
+}

@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Yarn config and stuff - we're not using Zero-Installs
+# because that would blow up the repo size even more
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
