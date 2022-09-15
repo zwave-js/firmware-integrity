@@ -1,11 +1,12 @@
 {
   "name": "@zwave-js/firmware-integrity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Z-Wave JS Firmware integrity hash creation tool",
   "publishConfig": {
     "access": "public"
   },
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "files": [
     "bin/",
     "build/**/*.{js,d.ts,map}"
