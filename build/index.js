@@ -9,6 +9,9 @@ const axios_1 = __importDefault(require("axios"));
 const crypto_1 = __importDefault(require("crypto"));
 const DOWNLOAD_TIMEOUT = 60000;
 const MAX_FIRMWARE_SIZE = 10 * 1024 * 1024; // 10MB should be enough for any conceivable Z-Wave chip
+function hasExtension(pathname) {
+    return /\.[a-z0-9_]+$/i.test(pathname);
+}
 async function downloadFirmware(url) {
     // Download the firmware file
     const downloadResponse = await axios_1.default.get(url, {
@@ -18,6 +21,16 @@ async function downloadFirmware(url) {
     });
     const rawData = downloadResponse.data;
     let filename;
+    const requestedPathname = new URL(url).pathname;
+    // The response may be redirected, so the filename information may be different
+    // from the requested URL
+    let actualPathname;
+    try {
+        actualPathname = new URL(downloadResponse.request.res.responseUrl).pathname;
+    }
+    catch {
+        // ignore
+    }
     // Infer the file type from the content-disposition header or the filename
     if (downloadResponse.headers["content-disposition"]?.startsWith("attachment; filename=")) {
         filename = downloadResponse.headers["content-disposition"]
@@ -25,8 +38,11 @@ async function downloadFirmware(url) {
             .replace(/^"/, "")
             .replace(/[";]$/, "");
     }
+    else if (actualPathname && hasExtension(actualPathname)) {
+        filename = actualPathname;
+    }
     else {
-        filename = new URL(url).pathname;
+        filename = requestedPathname;
     }
     return { filename, rawData };
 }
