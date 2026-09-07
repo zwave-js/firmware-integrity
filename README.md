@@ -14,3 +14,7 @@ npx @zwave-js/firmware-integrity <file>
 ```
 
 This loads or downloads the given file or URL, extracts the raw firmware data, and generates the integrity hash.
+
+## Contributing
+
+AI tools may assist contributors, but every contribution must be personally reviewed, understood, and explainable. Autonomous-agent contributions and unreviewed AI communication are prohibited. Read the [Z-Wave JS AI policy](AI_POLICY.md) before contributing.
